@@ -1,0 +1,47 @@
+{% extends "users/index.html" %}
+
+{% block content %} 
+<div class="row justify-content-center" style="padding-top: 50px;">
+    <div class="col-md-9 " >
+        <div class="row justify-content-center px-3">
+            <div class="col-md-7" style="padding-top: 100px; padding-bottom: 100px;">
+                <div class="contain justify-content-center" id="container">
+                    
+                    <div class="form-container sign-in">
+                        {% include "users/_messages.html" %}
+                        <form method="post">
+                            <input type="hidden" name="csrf_token" value="{{csrf_token()}}">
+                            <h3 class="pt-4">Create Account</h3>
+                            <input type="text" name="fname" placeholder="First name">
+                            <input type="text" name="lname" placeholder="Last name">
+                            <input type="email" name="email" placeholder="Email">
+                            <input type="text" name="ssn" placeholder="SSN">
+                            <input type="text" name="address" placeholder="Address">
+                            <input type="text" name="zipcode" placeholder="zipcode">
+                            <input type="text" name="city" placeholder="City">
+                            <input type="password" name="pwd" placeholder="Password">
+                            <input type="Password" name="confpwd" placeholder="confirm password">
+                            
+                            <button type="submit">Sign Up</button>
+                            <div class="toggle-container">
+                                <div class="toggle ">
+                                    <div class="toggle-panel toggle-right">
+                                        <h1>Welcome, back!</h1>
+                                        <p>Log in to use all of site features</p>
+                                        <a href="{{url_for('login')}}" class="btn btn-outline-dark px-4">Login</a>
+                                    </div>
+                                </div>
+                            </div>
+                           
+                        </form>
+                    </div>
+                  
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content%}
+
