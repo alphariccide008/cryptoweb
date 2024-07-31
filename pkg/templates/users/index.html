@@ -30,8 +30,8 @@
         }
         .native{
             position: fixed;
-            backdrop-filter: blur(20px);
-            background-color: transparent;
+            backdrop-filter: blur(50px);
+            background-color: rgb(18, 18, 52);
             
         }
         .display1{
@@ -72,6 +72,11 @@
         .choose-us .card{
             background-color: rgb(8, 8, 18);
             border: 1px solid rgb(191, 193, 196);
+        }
+        .choose-us .bord{
+            background-color: rgb(8, 8, 18);
+            border: 1px solid rgb(191, 193, 196);
+            border-radius: 5px;
         }
         .choose-us hr{
             border: 2px solid rgb(252, 255, 255);
@@ -148,6 +153,36 @@
             background-size:cover;
             background-position: center;
         }
+        #movetop:hover {
+        opacity: 0.9;
+        transition: 0.3s ease;
+        }
+
+        #movetop span.fa {
+        line-height: 50px;
+        color: #fff;
+        font-size: 22px;
+        }
+        #movetop {
+        position: fixed;
+        bottom: 50px;
+        right: 20px;
+        z-index: 99;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        width: 46px;
+        height: 46px;
+        background: var(--secondary-color);
+        padding: 0;
+        opacity: 1;
+        transition: 0.3s ease;
+        border-radius: 6px;
+        color: #fff;
+        font-size: 20px;
+        line-height: 50px;
+        }
+
         .offer1 hr{
             border: 2px solid rgb(252, 255, 255);
             margin-right:90px;
@@ -276,6 +311,7 @@
             z-index: 100;
         }
         
+        
     </style>
 </head>
 <body>
@@ -294,23 +330,23 @@
                       </button>
                       <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0 py-2">
-                          <li class="nav-item">
-                            <a class="nav-link navbarLink mx-3 active text-white" aria-current="page" href="{{url_for('homepage')}}">HOME</a>
+                          <li class="nav-item navbarLink">
+                            <a class="nav-link  mx-3 active text-white" aria-current="page" href="{{url_for('homepage')}}">HOME</a>
                           </li>
-                          <li class="nav-item">
-                            <a class="nav-link navbarLink mx-3 active text-white" aria-current="page" href="{{url_for('about_us')}}">ABOUT US</a>
+                          <li class="nav-item navbarLink">
+                            <a class="nav-link  mx-3 active text-white" aria-current="page" href="{{url_for('about_us')}}">ABOUT US</a>
                           </li>
-                          <li class="nav-item">
-                            <a class="nav-link navbarLink mx-3 active text-white" aria-current="page" href="{{url_for('plans')}}">PLANS</a>
+                          <li class="nav-item navbarLink">
+                            <a class="nav-link  mx-3 active text-white" aria-current="page" href="{{url_for('plans')}}">PLANS</a>
                           </li>
-                          <li class="nav-item">
-                            <a class="nav-link mx-3 navbarLink active text-white" aria-current="page" href="{{url_for('faq')}}">FAQS</a>
+                          <li class="nav-item navbarLink">
+                            <a class="nav-link mx-3 active text-white" aria-current="page" href="{{url_for('faq')}}">FAQS</a>
                           </li>
                           <li class="nav-item navbarLink">
                             <a class="nav-link mx-3  active text-white" href="" >CONTACT</a>
                           </li>
-                          <li>
-                            <a href="{{url_for('login')}}" class="btn btn-outline-light mx-5 px-3">LOGIN</a>
+                          <li class="nav-item my-2 text-right">
+                            <a href="{{url_for('login')}}" class="btn btn-outline-light navbarLink mx-3  active  px-3">LOGIN</a>
                           </li>
                         </ul>
                         
@@ -332,7 +368,7 @@
                         <h5>Welcome to crypto Finance Investment</h5>
                         <h2>Best Way To Multiply your Finance</h2>
                         <h4 class="p-3">The highest paying and trusted investment company. Start earning with Finance Capital Investment today.</h4>
-                        <a href="login.html" class="btn btn-warning px-4 py-2 mb-3 text-white">Join for Free</a>
+                        <a href="{{ url_for('login') }}" class="btn btn-warning px-4 py-2 mb-3 text-white">Join for Free</a>
                     </div>
                     
                 </div>
@@ -350,32 +386,32 @@
                         </div>
                     </div>
                     <div class="row justify-content-center card-body px-2 text-center text-white">
-                        <div class="col-md-3 m-4 card  p-5">
+                        <div class="col-md-3 m-4 bord  p-5">
                             <i class="fa-solid fa-3x pb-3  fa-lock"></i>
                             <h4>Safe and Secure</h4>
                             <h6>Top nothc security measures, for inner and external transactions and personal data encryption standart option.</h6>
                         </div>
-                        <div class="col-md-3 m-4 card p-5">
+                        <div class="col-md-3 m-4 bord p-5">
                             <i class="fa-solid fa-3x pb-3 fa-chart-simple"></i>
                             <h4>Daily Earning</h4>
                             <h6>Register and enjoy daily earnings on every calender day.</h6>
                         </div>
-                        <div class="col-md-3 m-4 card p-5">
+                        <div class="col-md-3 m-4 bord p-5">
                             <i class="fa-solid fa-3x pb-3 fa-money-bill-transfer"></i>
                             <h4>Instant Payouts</h4>
                             <h6>payouts and withdrawals are processed as fast as possible with the help of our automated system.</h6>
                         </div>
-                        <div class="col-md-3 m-4 card p-5">
+                        <div class="col-md-3 m-4 bord p-5">
                             <i class="fa-solid fa-3x pb-3 fa-database"></i>
                             <h4>Worldwide Datacenter</h4>
                             <h6>100% uptime guarantee, thanks to our highly advanced data center network around the globe.</h6>
                         </div>
-                        <div class="col-md-3 m-4 card p-5">
+                        <div class="col-md-3 m-4 bord p-5">
                             <i class="fa-solid fa-3x pb-3 fa-phone"></i>
                             <h4>24/7 Support</h4>
                             <h6>Dedicated support via email,phone and live chat around the clock to answer your questions at a time.</h6>
                         </div>
-                        <div class="col-md-3 m-4 card p-5">
+                        <div class="col-md-3 m-4 bord p-5">
                             <i class="fa-solid fa-3x pb-3 fa-money-bill"></i>
                             <h4>Investment Management</h4>
                             <h6>A unique online platform modifiied to automatically recieve investment payments and calculate profits.</h6>
@@ -401,7 +437,7 @@
                         <div class="col-md-4 ml-2 py-5 px-4">
                             <p class="pt-5">Finance Capital Investment is one of Americas's leading Bitcoin Investment company. We work hard to create value for the future on behalf of our crypto currency investors.
                                 Why choose US as your Crypto Investments? Good investment decisions depend on good judgment. Good judgment is only possible with relevant knowledge and experience. At Finance Capital Investment we know the Regional representatives we invest in, and we know why we chose them. They are Investors we believe will create value over time.</p>
-                            <a href="#" class="btn btn-warning text-white px-4 py-2">Read More</a>
+                            <a href="{{ url_for('login') }}" class="btn btn-warning text-white px-4 py-2">Read More</a>
                         </div>
                         
                     </div>
@@ -417,11 +453,11 @@
                         <div class="col-md-4 py-5 px-2">
                             <h3 class="pb-2">How it works?</h3>
                             <p>Start earning from CryptoFinance Investment with the Four easy steps below.</p>
-                            <a href="#" class="btn inner-works-sec btn-warning" >GET STARTED</a>
+                            <a href="{{ url_for('login') }}" class="btn inner-works-sec btn-warning" >GET STARTED</a>
                         </div>
                         <div class="col-md-4 py-5">
                             <h3 class="pb-2"> <i class="fa-solid fa-user-plus"></i> Create An Account</h3>
-                            <p class="pb-5">Create an Account <a href="#" style="text-decoration: none; color: rgb(231, 204, 27);">Click here to create an account. It's free!</a></p>
+                            <p class="pb-5">Create an Account <a href="{{ url_for('register') }}" style="text-decoration: none; color: rgb(231, 204, 27);">Click here to create an account. It's free!</a></p>
                             <h3 class="pb-2"><i class="fa-solid fa-download"></i> Fund Account</h1>
                             <p class="pb-5">Fund your account through our payment channel with any amount.</p>
                             
@@ -460,7 +496,7 @@
                                     <li>Maximium: 5 Btc</li>
                                     <li>Senior Broker</li>
                                     <li>Beginners Guide</li>
-                                    <li><a href="#" class="btn btn-primary px-4" style="background-color: rgba(81, 0, 255, 0.51); color: azure;">GET STARTED</a></li>
+                                    <li><a href="{{ url_for('login') }}" class="btn btn-primary px-4" style="background-color: rgba(81, 0, 255, 0.51); color: azure;">GET STARTED</a></li>
                                 </ul>
     
                             </div>
@@ -474,7 +510,7 @@
                                     <li>Maximium: 10 Btc</li>
                                     <li>EP Broker</li>
                                     <li>Pro Guide</li>
-                                    <li><a href="#" class="btn px-3" style="background-color: rgb(156, 75, 165); color: white;">GET STARTED</a></li>
+                                    <li><a href="{{ url_for('login') }}" class="btn px-3" style="background-color: rgb(156, 75, 165); color: white;">GET STARTED</a></li>
                                 </ul>
     
                             </div>
@@ -502,7 +538,7 @@
                                     <li>Maximium: 30 Btc</li>
                                     <li>Star Broker</li>
                                     <li>advanced Guide</li>
-                                    <li><a href="#" class="btn btn-warning px-3 text-white" style="background-color: rgb(184, 133, 4);">GET STARTED</a></li>
+                                    <li><a href="{{ url_for('login') }}" class="btn btn-warning px-3 text-white" style="background-color: rgb(184, 133, 4);">GET STARTED</a></li>
                                 </ul>
     
                             </div>
@@ -599,7 +635,32 @@
 
 
     </div>
+    <button style="background-color:rgb(218, 147, 14) ;" onclick="topFunction()" id="movetop" title="Go to top">
+        &#10548;
+      </button>
+      <!-- <script>
+      
+        </script> -->
+        <!-- /move top -->
     <script>
+            // When the user scrolls down 20px from the top of the document, show the button
+            window.onscroll = function () {
+            scrollFunction()
+          };
+    
+          function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+              document.getElementById("movetop").style.display = "block";
+            } else {
+              document.getElementById("movetop").style.display = "none";
+            }
+          }
+    
+          // When the user clicks on the button, scroll to the top of the document
+          function topFunction() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+          }
     
         var loader = document.getElementById("preloader");
     
