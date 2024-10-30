@@ -362,6 +362,22 @@
          <!-- This is the main content area-->
         {% block content %}
         <div class="row justify-content-center  display1">
+            <div class=" mt-5">
+                <div class="row hero justify-content-center mt-5" style="padding-top: 100px;">
+                    <div class="col-md-6 p-5 text-white  ">
+                        <h5>Welcome to CryptoFinance</h5>
+                        <h2>Unlock Your Financial Potential with <span>Crytpo</span>Finance</h2>
+                        <h6 style="color: #bbbbbb;" class="py-3">Join the ranks of savvy investors who trust us as the highest-paying investment company in the industry. Start earning today and watch your money work for you! With our expert guidance and proven strategies, your financial dreams are within reach. Don’t miss out on the opportunity to secure your future—invest with Gold Capital Investment now!.</h4>
+                        <a style="background-color: rgb(195, 145, 18); text-decoration: none; border-radius: 5px;" href="{{ url_for('login') }}" class=" px-4 py-2 mb-3 text-white">Open Deposit</a>
+                    </div> 
+                    <div class="col-md-5  pt-2" style="border-radius: 50%;">
+                        <img class="img-fluid" style="border-radius: 25%;" src="/static/images/bitcoinbannernew.png" alt="">
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <!-- <div class="row justify-content-center  display1">
             <div class="col-md-9">
                 <div class="row justify-content-center mt-5">
                     <div class="col-md-7 inner-display text-center">
@@ -373,8 +389,185 @@
                     
                 </div>
             </div>
-        </div>
+        </div> -->
         <!-- end of the main content Area -->
+          <!-- maque section -->
+          <section>
+            <div class="row">
+                <div style="height:62px; background-color: #1D2330; overflow:hidden; box-sizing: border-box; border: 1px solid #282E3B; border-radius: 4px; text-align: right; line-height:14px; block-size:62px; font-size: 16px; font-feature-settings: normal; text-size-adjust: 100%; box-shadow: inset 0 -20px 0 0 #262B38;padding:1px;padding: 0px; margin: 0px; width: 100%;"><div style="height:40px; padding:0px; margin:0px; width: 100%;"><iframe src="https://widget.coinlib.io/widget?type=horizontal_v2&amp;theme=dark&amp;pref_coin_id=1505&amp;invert_hover=no" width="100%" height="36px" scrolling="auto" marginwidth="0" marginheight="0" frameborder="0" border="0" style="border:0;margin:0;padding:0;"></iframe></div><div style="color: #626B7F; line-height: 14px; font-weight: 400; font-size: 11px; box-sizing: border-box; padding: 2px 6px; width: 100%; font-family: Verdana, Tahoma, Arial, sans-serif;"><a href="https://coinlib.io/" target="_blank" style="font-weight: 500; color: #626B7F; text-decoration:none; font-size:11px"></a></div>
+            </div>
+        </section>
+        <!-- end of the maque section -->
+        <!-- This is the first Bitcoing section -->
+        <section class="row">
+            <div class="tradingview-widget-container "data-aos="fade-up">
+                <div class="tradingview-widget-container__widget"></div>
+                <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener" target="_blank"><span class="blue-text">Market Data</span></a> by TradingView</div>
+                <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js" async>
+                {
+                "colorTheme": "dark",
+                "dateRange": "12m",
+                "showChart": true,
+                "locale": "en",
+                "largeChartUrl": "",
+                "isTransparent": true,
+                "width": "100%",
+                "height": "500",
+                "plotLineColorGrowing": "rgba(65, 224, 136, 1)",
+                "plotLineColorFalling": "rgba(65, 224, 136, 1)",
+                "gridLineColor": "rgba(65, 224, 136, 1)",
+                "scaleFontColor": "rgba(65, 224, 136, 1)",
+                "belowLineFillColorGrowing": "rgba(65, 224, 136, 0.12)",
+                "belowLineFillColorFalling": "rgba(65, 224, 136, 0.12)",
+                "symbolActiveColor": "rgba(65, 224, 136, 0.12)",
+                "tabs": [
+                  {
+                    "title": "Indices",
+                    "symbols": [
+                      {
+                        "s": "OANDA:SPX500USD",
+                        "d": "S&P 500"
+                      },
+                      {
+                        "s": "OANDA:NAS100USD",
+                        "d": "Nasdaq 100"
+                      },
+                      {
+                        "s": "FOREXCOM:DJI",
+                        "d": "Dow 30"
+                      },
+                      {
+                        "s": "INDEX:NKY",
+                        "d": "Nikkei 225"
+                      },
+                      {
+                        "s": "INDEX:DEU30",
+                        "d": "DAX Index"
+                      },
+                      {
+                        "s": "OANDA:UK100GBP",
+                        "d": "FTSE 100"
+                      }
+                    ],
+                    "originalTitle": "Indices"
+                  },
+                  {
+                    "title": "Commodities",
+                    "symbols": [
+                      {
+                        "s": "CME_MINI:ES1!",
+                        "d": "E-Mini S&P"
+                      },
+                      {
+                        "s": "CME:6E1!",
+                        "d": "Euro"
+                      },
+                      {
+                        "s": "COMEX:GC1!",
+                        "d": "Gold"
+                      },
+                      {
+                        "s": "NYMEX:CL1!",
+                        "d": "Crude Oil"
+                      },
+                      {
+                        "s": "NYMEX:NG1!",
+                        "d": "Natural Gas"
+                      },
+                      {
+                        "s": "CBOT:ZC1!",
+                        "d": "Corn"
+                      }
+                    ],
+                    "originalTitle": "Commodities"
+                  },
+                  {
+                    "title": "Bonds",
+                    "symbols": [
+                      {
+                        "s": "CME:GE1!",
+                        "d": "Eurodollar"
+                      },
+                      {
+                        "s": "CBOT:ZB1!",
+                        "d": "T-Bond"
+                      },
+                      {
+                        "s": "CBOT:UB1!",
+                        "d": "Ultra T-Bond"
+                      },
+                      {
+                        "s": "EUREX:FGBL1!",
+                        "d": "Euro Bund"
+                      },
+                      {
+                        "s": "EUREX:FBTP1!",
+                        "d": "Euro BTP"
+                      },
+                      {
+                        "s": "EUREX:FGBM1!",
+                        "d": "Euro BOBL"
+                      }
+                    ],
+                    "originalTitle": "Bonds"
+                  },
+                  {
+                    "title": "Forex",
+                    "symbols": [
+                      {
+                        "s": "FX:EURUSD"
+                      },
+                      {
+                        "s": "FX:GBPUSD"
+                      },
+                      {
+                        "s": "FX:USDJPY"
+                      },
+                      {
+                        "s": "FX:USDCHF"
+                      },
+                      {
+                        "s": "FX:AUDUSD"
+                      },
+                      {
+                        "s": "FX:USDCAD"
+                      }
+                    ],
+                    "originalTitle": "Forex"
+                  }
+                ]
+              }
+                </script>
+              </div>
+              <!-- TradingView Widget END -->
+              <br>
+
+              
+          <!-- ============================================================================================================================ -->
+   <div class="tradingview-widget-container__widget row swiper-slide" data-aos="fade-down"></div>
+   <script type   ="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-forex-cross-rates.js" async>
+   {
+   "width": "100%",
+   "height": "400",
+   "colorTheme": "dark",
+   "currencies": [
+     "EUR",
+     "USD",
+     "JPY",
+     "GBP",
+     "CHF",
+     "AUD",
+     "CAD",
+     "NZD",
+     "CNY"
+   ],
+   "locale": "en"
+ }
+   </script>
+ </div>
+        </section>
+        
+        <!-- end of the first Bitcoin section -->
         <!-- Area for why choose us -->
         <section>
             <div class="row justify-content-center choose-us">
@@ -473,6 +666,17 @@
             </div>
         </section>
         <!-- End of how it works section -->
+        <section>
+            <div class="row justify-content-center offer">
+                
+                    <div data-aos="fade-up" style="height:560px; background-color: #1D2330; overflow:hidden; box-sizing: border-box; border: 1px solid #0e1404; border-radius: 4px; text-align: right; line-height:14px; font-size: 12px; font-feature-settings: normal; text-size-adjust: 100%; box-shadow: inset 0 -20px 0 0 #7c6a04;padding:1px;padding: 0px; margin: 0px; width: 100%;"><div style="height:540px; padding:0px; margin:0px; width: 100%;"><iframe src="https://widget.coinlib.io/widget?type=chart&amp;theme=dark&amp;coin_id=859&amp;pref_coin_id=1505" width="100%" height="536px" scrolling="auto" marginwidth="0" marginheight="0" frameborder="0" border="0" style="border:0;margin:0;padding:0;line-height:14px;"></iframe></div><div style="color:#0f1f08; line-height: 14px; font-weight: 400; font-size: 11px; box-sizing: border-box; padding: 2px 6px; width: 100%; font-family: Verdana, Tahoma, Arial, sans-serif;"><span style="color: #ebebeb;"><strong>Crypto currency Trades</strong></span>&nbsp;</div></div>
+                
+            </div>
+        </section>
+        
+        <!-- This nis the Maquee section -->
+            
+        <!-- end of the maqueesection -->
         <!-- Select plan section -->
         <section>
             <div class="row justify-content-center p-external-border text-center">
