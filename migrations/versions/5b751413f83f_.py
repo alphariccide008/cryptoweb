@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: af364acee157
+Revision ID: 5b751413f83f
 Revises: 
-Create Date: 2024-07-25 23:41:29.082418
+Create Date: 2024-10-30 10:08:05.926932
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = 'af364acee157'
+revision = '5b751413f83f'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -40,9 +40,9 @@ def upgrade():
     )
     op.create_table('balance',
     sa.Column('balance_id', sa.Integer(), autoincrement=True, nullable=False),
-    sa.Column('btc_balance', sa.Numeric(), nullable=False),
-    sa.Column('eth_balance', sa.Numeric(), nullable=False),
-    sa.Column('freezed_balance', sa.Numeric(), nullable=False),
+    sa.Column('btc_balance', sa.String(length=64), nullable=False),
+    sa.Column('eth_balance', sa.String(length=64), nullable=False),
+    sa.Column('freezed_balance', sa.String(length=64), nullable=False),
     sa.Column('balance_user_id', sa.Integer(), nullable=True),
     sa.ForeignKeyConstraint(['balance_user_id'], ['user.user_id'], ),
     sa.PrimaryKeyConstraint('balance_id')
@@ -59,7 +59,7 @@ def upgrade():
     sa.Column('trans_id', sa.Integer(), autoincrement=True, nullable=False),
     sa.Column('trans_name', sa.String(length=64), nullable=False),
     sa.Column('trans_amount', sa.Numeric(), nullable=False),
-    sa.Column('trans_filename', sa.String(length=64), nullable=False),
+    sa.Column('trans_filename', sa.String(length=64), nullable=True),
     sa.Column('trans_plan', sa.String(length=64), nullable=False),
     sa.Column('trans_status', sa.String(length=64), nullable=False),
     sa.Column('trans_action', sa.String(length=64), nullable=False),

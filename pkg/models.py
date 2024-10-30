@@ -22,7 +22,7 @@ class Transaction(db.Model):
     trans_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     trans_name = db.Column(db.String(64), nullable=False)
     trans_amount = db.Column(db.Numeric, nullable=False)
-    trans_filename = db.Column(db.String(64), nullable=False)
+    trans_filename = db.Column(db.String(64), nullable=True)
     trans_plan = db.Column(db.String(64), nullable=False)
     trans_status = db.Column(db.String(64), nullable=False)
     trans_action = db.Column(db.String(64), nullable=False)
@@ -32,9 +32,9 @@ class Transaction(db.Model):
 
 class Balance(db.Model):
     balance_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    btc_balance = db.Column(db.Numeric, nullable=False)
-    eth_balance = db.Column(db.Numeric, nullable=False)
-    freezed_balance = db.Column(db.Numeric, nullable=False)
+    btc_balance = db.Column(db.String(64), nullable=False)
+    eth_balance = db.Column(db.String(64),nullable=False)
+    freezed_balance = db.Column(db.String(64), nullable=False)
     balance_user_id = db.Column(db.Integer, db.ForeignKey('user.user_id'))
     user = db.relationship("User", back_populates="user_balance")
 

@@ -132,23 +132,15 @@ def btcupload():
             if filename=='':
                 flash('Please Choose project',category='error')
             else:                
-                pieces=filename.split('.')
-                ext=pieces[-1].lower()
-                if ext in allowed:
-                    newname=str(int(random.random()*10000000))+filename
-                    filesobj.save('pkg/static/uploads/'+ newname)
-                else:
-                    flash("Not Allowed, File Type Must Be ['jpg','png'], File was not uploades",category='error')
-            newfile=newname
-            name=request.form.get('name')
-            amount =request.form.get('amount')
-            transplan = request.form.get('transplan')
-            action = request.form.get('action')
-            uploader = Transaction(trans_name=name, trans_amount=amount ,trans_filename=newfile,trans_plan=transplan,trans_status='Pending Confirmation',trans_action=action,trans_user_id =id)
-            db.session.add(uploader)
-            db.session.commit()
-            flash('Your reciept have successfully been uploaded. Check your transaction history','success')
-            return redirect(url_for('btcupload'))
+                name=request.form.get('name')
+                amount =request.form.get('amount')
+                transplan = request.form.get('transplan')
+                action = request.form.get('action')
+                uploader = Transaction(trans_name=name, trans_amount=amount ,trans_plan=transplan,trans_status='Pending Confirmation',trans_action=action,trans_user_id =id)
+                db.session.add(uploader)
+                db.session.commit()
+                flash('Your reciept have successfully been uploaded. Check your transaction history','success')
+                return redirect(url_for('btcupload'))
          
 
 
@@ -161,36 +153,15 @@ def ethupload():
     if request.method == "GET":
       return render_template("users/ethpayment.html",userdeets=userdeets,uploadfile=uploadfile)
     else:
-         if request.method =='GET':
-            deets= db.session.query(Transaction).all()
-            return render_template('users/ethpayment.html',deets=deets,userdeets=userdeets)
-         else:
-            #retrieve the file
-            allowed=['jpg','png','webp']
-            filesobj=request.files['image']
-            filename=filesobj.filename
-            newname='Default.png'
-            #validation
-            if filename=='':
-                flash('Please Choose project',category='error')
-            else:                
-                pieces=filename.split('.')
-                ext=pieces[-1].lower()
-                if ext in allowed:
-                    newname=str(int(random.random()*10000000))+filename
-                    filesobj.save('pkg/static/uploads/'+ newname)
-                else:
-                    flash("Not Allowed, File Type Must Be ['jpg','png'], File was not uploades",category='error')
-            newfile=newname
-            name=request.form.get('name')
-            amount =request.form.get('amount')
-            transplan = request.form.get('transplan')
-            action = request.form.get('action')
-            uploader = Transaction(trans_name=name, trans_amount=amount ,trans_filename=newfile,trans_plan=transplan,trans_status='Pending Confirmation',trans_action=action, trans_user_id =id)
-            db.session.add(uploader)
-            db.session.commit()
-            flash('Your reciept have successfully been uploaded. Check your Transaction history','success')
-            return redirect(url_for('ethupload'))
+        name=request.form.get('name')
+        amount =request.form.get('amount')
+        transplan = request.form.get('transplan')
+        action = request.form.get('action')
+        uploader = Transaction(trans_name=name, trans_amount=amount ,trans_plan=transplan,trans_status='Pending Confirmation',trans_action=action, trans_user_id =id)
+        db.session.add(uploader)
+        db.session.commit()
+        flash('Your reciept have successfully been uploaded. Check your Transaction history','success')
+        return redirect(url_for('ethupload'))
     
 
 # This is displaying the transaction hsitory
