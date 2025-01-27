@@ -148,50 +148,28 @@
             {% block content%}
 			<div class="row px-1 my-2 p-2">
 				<div class="col-md-12">
-					{% if transaction %}
+					
 					<div class="row justify-content-center">
-						{% for trans in transaction %}
+						
 						<div class="col-md-3 py-2 mx-2 card">
 							
 							<p>BTC Balance</p>
-							<h4>{{ trans.btc_balance }}BTC</h4>
+							<h4>{{ userdeets.btc_balance }}BTC</h4>
 						</div>
 						
 						<div class="col-md-3 py-2  mx-5 card">
 							<p>Freezed Balance</p>
-							<h4>${{ trans.freezed_balance }}.00</h4>
+							<h4>${{ userdeets.freezed_balance }}</h4>
 						</div>
 						<div class="col-md-3 py-2 mx-1 card">
 							<p>USDT Balance</p>
-							<h4>${{ trans.eth_balance }}USDT</h4>
+							<h4>{{ userdeets.eth_balance }}USDT</h4>
 						</div>
-						{% endfor %}
+						
 						
 
 					</div>
-					{% else%}
-					<div class="row px-1 my-2 p-2">
-						<div class="col-md-12">
-							<div class="row justify-content-center">
-								<div class="col-md-3 py-2 mx-2 card">
-									
-									<p>BTC Balance</p>
-									<h4>$0.00</h4>
-								</div>
-								
-								<div class="col-md-3 py-2  mx-5 card">
-									<p>Freezed Balance</p>
-									<h4>$0.00</h4>
-								</div>
-								<div class="col-md-3 py-2 mx-1 card">
-									<p>USDT Balance</p>
-									<h4>$0.00</h4>
-								</div>
-								
-								
-		
-							</div>
-					{% endif %}
+					
 				</div>
 			</div>
 			<!-- This the live stock chart -->

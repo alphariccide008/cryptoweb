@@ -8,7 +8,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 
 
 from pkg import app,csrf
-from pkg.models import db,User,Adminreg,Transaction,Balance
+from pkg.models import db,User,Adminreg,Transaction
 from pkg.forms import *
 
 
@@ -46,10 +46,10 @@ def admin():
 
                 return redirect(url_for('all_users'))
             else:
-                flash('invalid credentials, try again',category='error')
+                flash('invalid credentials, try again',category='danger')
                 return redirect('/admin/')
         else:
-            flash('invalid Credentials, try again',category='error')
+            flash('invalid Credentials, try again',category='danger')
             return redirect('/admin/')
         
 
@@ -61,9 +61,20 @@ def admin():
 def all_users():
     id = session.get('admin')
     admindeets = db.session.query(Adminreg).get_or_404(id)
-    userdeets = db.session.query(User,Balance).join(Balance, User.user_id==Balance.balance_user_id).all()
-    deet =[{'user':user ,'bala': bala} for user,bala in userdeets]
-    return render_template('admin/all_user.html',deets=deet)
+    deet = db.session.query(User).all()
+    
+    return render_template('admin/all_user.html',deet=deet,admindeets=admindeets)
+
+
+@app.route('/edit_user_balance/')
+@login_required
+def edit_all_user():
+    id = session.get('admin')
+    admindeets = db.session.query(Adminreg).get_or_404(id)
+    userdeets = db.session.query(User).all()
+    
+    return render_template('admin/edit_balance.html',userdeets=userdeets,admindeets=admindeets)
+
 
 
 @app.route("/All_transactions")
@@ -77,31 +88,30 @@ def all_transaction():
 
 
 
-
 @app.route('/edit_balance/<di>', methods=['POST', 'GET'])
 @login_required
 def edit_balance(di):
+    user = db.session.query(User).filter_by(user_id=di).first()  # Ensure 'first()' is used to get a single result
+
     if request.method == 'POST':
         btc_balance = request.form.get('btcbalance')
         eth_balance = request.form.get('ethbalance')
         freezed_balance = request.form.get('freezed')
 
-        balance = db.session.query(Balance).filter_by(balance_user_id=di).first()
-        if balance:
-            balance.btc_balance = btc_balance
-            balance.eth_balance = eth_balance
-            balance.freezed_balance = freezed_balance
+        if user:
+            user.btc_balance = btc_balance
+            user.eth_balance = eth_balance
+            user.freezed_balance = freezed_balance
             db.session.commit()
             flash('Balance updated successfully', category='success')
         else:
-            flash('Balance not found', category='error')
+            flash('User not found', category='error')
 
-        return redirect(url_for('all_users'))
+        return redirect(url_for('edit_all_user'))
 
-    id = session.get('admin')
-    userdeet = db.session.query(Adminreg).get_or_404(id)
-    deets = db.session.query(Balance).filter_by(balance_user_id=di).first()
-    return render_template('admin/editbalance.html', userdeet=userdeet, deets=deets)
+    # Render template with 'user' (this will work whether 'POST' is submitted or not)
+    return render_template('admin/editbalance.html', user=user)
+
 
 
 
@@ -116,7 +126,7 @@ def edit_balance(di):
 @app.route("/admin/delete/<id>/" ,methods=['POST','GET'])
 def all_delete(id):
     payment = db.session.query(User).get_or_404(id)
-    balance = db.session.query(Balance).filter_by(balance_user_id=id)
+   
     transaction =db.session.query(Transaction).filter_by(trans_user_id=id)
     db.session.delete(payment)
    
@@ -132,3 +142,12 @@ def confirm(id):
     db.session.commit()
     flash('Payment has been successfully confirmed',category='success')
     return redirect(url_for('all_transaction'))
+
+
+
+@app.route("/admin/logout")
+def admin_logout():
+    if session.get('admin')!= None:
+        session.pop('admin',None)
+        flash('you\'ve logged out successfully',"success")
+    return redirect(url_for('admin'))

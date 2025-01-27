@@ -8,7 +8,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 
 
 from pkg import app,csrf
-from pkg.models import db,User,Transaction,Balance
+from pkg.models import db,User,Transaction
 from pkg.forms import *
 
 
@@ -71,7 +71,7 @@ def register():
             flash("This Email is already in use","danger")
             return redirect(url_for('register'))
         else:
-            new_user=User(fname=form.fname.data,lname=form.lname.data,address=form.address.data,city=form.city.data,zipcode=form.zipcode.data, email=form.email.data, ssn=form.ssn.data, password=hash_password)
+            new_user=User(fname=form.fname.data,lname=form.lname.data,address=form.address.data,city=form.city.data,zipcode=form.zipcode.data, btc_balance='0',eth_balance='0', freezed_balance='0', email=form.email.data, ssn=form.ssn.data, password=hash_password)
             db.session.add(new_user)
             db.session.commit()
             flash('Account created successfully', "success")
@@ -87,7 +87,7 @@ def payment():
     transaction = db.session.query(Transaction).filter_by(trans_user_id=id).all()
     return render_template('users/btcpayment.html', userdeets=userdeets, transaction=transaction)
 
-# route for balance
+
 
 
 # route for bitcoin payment
@@ -216,9 +216,8 @@ def faq():
 def dashboard():
     id= session.get('user')
     userdeets = db.session.query(User).get_or_404(id)
-    transaction = db.session.query(Balance).filter_by(balance_user_id=id).all()
     deets = db.session.query(Transaction).filter_by(trans_user_id=id).limit(6).all()
-    return render_template("users/dashboard.html", userdeets=userdeets,deets=deets,transaction=transaction)
+    return render_template("users/dashboard.html", userdeets=userdeets,deets=deets)
 
 
 

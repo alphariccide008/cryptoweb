@@ -14,6 +14,7 @@ class RegForm(FlaskForm):
     city = StringField("Email",validators=[Email(),DataRequired(message="Input valid city")])
     zipcode = StringField("Email",validators=[Email(),DataRequired(message="Input valid zipcode")])
     pwd = PasswordField("Enter Password",validators=[DataRequired(message="Password must match")])
+    balance = FileField("Input btcbalance",validators=[FileAllowed(['jpg','png','jpeg'])])
     confpwd = PasswordField("Confirm Password",validators=[DataRequired(message="password don't match"),EqualTo("pwd")])
     btnsubmit = SubmitField("Register")
 

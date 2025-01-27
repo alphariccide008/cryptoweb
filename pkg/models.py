@@ -14,8 +14,10 @@ class User(db.Model):
     email = db.Column(db.String(100), nullable=False)
     ssn = db.Column(db.String(50), nullable=True)  # Consider encrypting this field
     password = db.Column(db.String(225), nullable=False)
+    btc_balance = db.Column(db.String(64), nullable=False)
+    eth_balance = db.Column(db.String(64),nullable=False)
+    freezed_balance = db.Column(db.String(64), nullable=False)
     user_transactions = db.relationship("Transaction", back_populates="user", cascade='all, delete-orphan')
-    user_balance = db.relationship("Balance", back_populates="user", cascade='all, delete-orphan')
     user_upload = db.relationship("Upload", back_populates="user", cascade='all, delete-orphan')
 
 class Transaction(db.Model):
@@ -29,14 +31,6 @@ class Transaction(db.Model):
     trans_date = db.Column(db.DateTime, default=datetime.utcnow)
     trans_user_id = db.Column(db.Integer, db.ForeignKey('user.user_id'))
     user = db.relationship("User", back_populates="user_transactions")
-
-class Balance(db.Model):
-    balance_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    btc_balance = db.Column(db.String(64), nullable=False)
-    eth_balance = db.Column(db.String(64),nullable=False)
-    freezed_balance = db.Column(db.String(64), nullable=False)
-    balance_user_id = db.Column(db.Integer, db.ForeignKey('user.user_id'))
-    user = db.relationship("User", back_populates="user_balance")
 
 class Check(db.Model):
     check_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
