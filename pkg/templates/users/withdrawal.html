@@ -11,11 +11,13 @@
                     {% include "users/_messages.html" %}
                     <h2 class="text-center">Withdrawal</h2>
                     <input type="text" class="form-control my-2" placeholder="Input amount" name="amount" id="">
+                    <input type="text" class="form-control mb-2" placeholder="Input Wallet Address" name="wallet">
                     <select name="account" class="form-control my-2" id="">
                         <option value="">--Select Account--</option>
                         <option value="BTCXXXXXXXXX">BTC Account</option>
                         <option value="ETHXXXXXXXXX"> ETH Account</option>
                         <option value="USDTXXXXXXXX">USDT Account</option>
+                        
                     </select>
                     <input type="hidden" name="action" value="Debit">
                     <button type="submit" class="btn btn-outline-primary form-control">Withdraw</button>
